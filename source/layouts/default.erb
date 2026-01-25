@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= current_page.data.title ? "#{current_page.data.title} | FRACP" : site_title %></title>
+  <meta name="description" content="<%= current_page.data.description || 'La Fédération Romande d\'Agriculture Contractuelle de Proximité (FRACP) réunit les paniers ACP, partenariats locaux et solidaires entre agriculteurs et consommateurs.' %>">
+  <%= stylesheet_link_tag 'style' %>
+  <link rel="icon" type="image/png" href="<%= image_path 'logo.png' %>">
+  <!-- Invoker Commands API Polyfill for older browsers -->
+  <script type="module" async src="https://unpkg.com/invokers-polyfill@latest/invoker.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <% link_to '/index.html', class: 'logo' do %>
+        <%= image_tag 'logo.png', alt: 'FRACP Logo', width: 380, height: 226 %>
+      <% end %>
+
+      <div class="header-right">
+        <a href="<%= map_url %>" class="btn-carte-header">
+          <span>Carte</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" fill="none"></path>
+            <path d="M15 5.764v15" fill="none"></path>
+            <path d="M9 3.236v15" fill="none"></path>
+          </svg>
+        </a>
+
+        <button type="button" class="menu-toggle" command="show-modal" commandfor="main-menu-dialog" aria-label="Ouvrir le menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <dialog id="main-menu-dialog" class="main-nav-dialog">
+        <div class="nav-content">
+          <button type="button" class="menu-close" command="close" commandfor="main-menu-dialog" aria-label="Fermer le menu">
+            <span></span>
+            <span></span>
+          </button>
+
+          <% link_to '/index.html', class: "nav-home-link #{active_link_class('index.html')}", onclick: "this.closest('dialog').close()" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+            <span>Accueil</span>
+          <% end %>
+
+          <div class="nav-section">
+            <span class="nav-section-title">Modèle ACP</span>
+            <ul class="nav-links">
+              <li><%= link_to 'Les paniers', '/paniers.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to 'Où trouver mon panier ?', '/carte.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to "Une ACP c'est quoi ?", '/modele-acp.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to 'Avantages du modèle ACP', '/avantages-modele-acp.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to 'Créer une ACP', '/creer-une-acp.html', onclick: "this.closest('dialog').close()" %></li>
+            </ul>
+          </div>
+
+          <a href="mailto:<%= site_email %>" class="nav-contact-btn" onclick="this.closest('dialog').close()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span><%= site_email %></span>
+          </a>
+        </div>
+      </dialog>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <%= yield %>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy;<%= current_year %> Fédération Romande de l'Agriculture Contractuelle de Proximité (FRACP)</p>
+        <p><%= mail_to site_email, site_email, class: "contact-mail" %></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Light dismiss: close dialog when clicking on backdrop
+    document.getElementById('main-menu-dialog').addEventListener('click', function(e) {
+      if (e.target === this) this.close();
+    });
+  </script>
+</body>
+</html>

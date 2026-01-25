@@ -1,0 +1,27 @@
+---
+title: Où trouver mon panier ?
+description: Trouvez une ACP près de chez vous grâce à notre carte interactive des initiatives d'Agriculture Contractuelle de Proximité en Suisse romande.
+---
+
+<section class="page-header">
+  <div class="container">
+    <h1>Où trouver mon panier ?</h1>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <p>Pour faciliter la recherche d'ACP et d'autres initiatives proposant des produits locaux, de saison et solidaires, la FRACP s'est associée aux réseaux des <a href="https://www.solawi.ch/">Solawi suisse-allemand</a> et <a href="https://www.solidarische-landwirtschaft.org/">allemand</a> afin de proposer une carte interactive de mise en réseau.</p>
+
+    <p>Cette plateforme est facilement accessible via le bouton « Carte » situé en haut de notre site internet ou directement à l'adresse <a href="<%= map_url %>">map.fracp.ch</a>.</p>
+
+    <p>Nous encourageons nos ACP membres ainsi que les autres initiatives à s'inscrire et à ajouter elles-mêmes leurs organisations ainsi que leurs différents points de distribution.</p>
+
+    <p>Pour toute question ou information complémentaire, n'hésitez pas à nous contacter.</p>
+
+    <p class="text-center" style="margin-top: 2rem;">
+      <%= link_to 'Accéder à la carte', map_url, class: 'btn' %>
+      <%= link_to 'Nous contacter', "mailto:#{site_email}", class: 'btn btn-outline' %>
+    </p>
+  </div>
+</section>

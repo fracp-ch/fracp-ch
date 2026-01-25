@@ -1,0 +1,88 @@
+---
+title: Accueil
+description: La Fédération Romande d'Agriculture Contractuelle de Proximité (FRACP) réunit les paniers ACP, partenariats locaux et solidaires entre agriculteurs et consommateurs.
+---
+
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-banner-content">
+      <h1 class="hero-title">
+        <span class="hero-line-1">L'ACP</span>
+        <span class="hero-line-2"><span class="letter-a">A</span>GRICULTURE <span class="letter-c">C</span>ONTRACTUELLE DE <span class="letter-p">P</span>ROXIMITÉ</span>
+        <span class="hero-line-3">PLUS QU'UN PANIER</span>
+        <span class="hero-line-4">UN ACTE ENGAGÉ</span>
+      </h1>
+    </div>
+  </div>
+  <div class="hero-banner-illustration">
+    <%= image_tag 'hero-illustration.svg', alt: 'Illustration fruits et légumes', width: 1500, height: 780 %>
+  </div>
+</section>
+
+<section class="intro-section">
+  <div class="container">
+    <p class="intro-text">
+      La <span class="letter-f">F</span>édération <span class="letter-r">R</span>omande d'<span class="letter-a">A</span>griculture <span class="letter-c">C</span>ontractuelle de <span class="letter-p">P</span>roximité (FRACP) est le réseau qui réunit les ACP, c'est-à-dire les partenariats locaux et solidaires entre agriculteurs et consommateurs.
+    </p>
+    <ul class="intro-points">
+      <li>Des abonnements à des paniers de légumes, fruits et autres produits transformés.</li>
+      <li>Pour une agriculture locale, écologique, solidaire et à taille humaine.</li>
+      <li>Pour assurer la souveraineté alimentaire.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+
+      <% link_to '/modele-acp.html', class: 'feature-card' do %>
+        <div class="feature-card-image">
+          <%= image_tag 'acp.png', alt: 'ACP Agriculture Contractuelle de Proximité', width: 582, height: 416 %>
+        </div>
+        <div class="feature-card-content">
+          <h2>Le modèle ACP</h2>
+          <ul>
+            <li>Découvrez l'Agriculture Contractuelle de Proximité.</li>
+            <li>Comprenez le fonctionnement des paniers.</li>
+            <li>Explorez les avantages pour tous les acteurs.</li>
+            <li>Adoptez un modèle alimentaire solidaire.</li>
+          </ul>
+        </div>
+      <% end %>
+
+      <% link_to map_url, class: 'feature-card' do %>
+        <div class="feature-card-image">
+          <%= image_tag 'panier.png', alt: 'Paniers de fruits et légumes contractuels', width: 582, height: 416 %>
+        </div>
+        <div class="feature-card-content">
+          <h2>S'abonner à un panier</h2>
+          <ul>
+            <li>Recevez des produits frais, locaux et de saison.</li>
+            <li>Soutenez directement les paysans de votre région.</li>
+            <li>Participez à une agriculture respectueuse.</li>
+            <li>Trouvez un panier près de chez vous.</li>
+          </ul>
+        </div>
+      <% end %>
+
+      <% link_to '/creer-une-acp.html', class: 'feature-card' do %>
+        <div class="feature-card-image">
+          <%= image_tag 'acp-creer.png', alt: 'Je crée mon ACP', width: 582, height: 416 %>
+        </div>
+        <div class="feature-card-content">
+          <h2>Créer une ACP</h2>
+          <ul>
+            <li>Lancez votre propre panier en tant que producteur.</li>
+            <li>Établissez un lien direct avec vos consommateurs.</li>
+            <li>Bénéficiez d'un revenu stable et garanti.</li>
+            <li>Rejoignez un réseau solidaire et engagé.</li>
+          </ul>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-separator">
