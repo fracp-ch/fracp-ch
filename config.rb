@@ -22,10 +22,6 @@ configure :build do
 
   # Enable cache buster
   activate :asset_hash
-
-  # Set the base path for GitHub Pages project site
-  # This ensures all links work correctly when deployed to /fracp-ch/ subdirectory
-  set :http_prefix, '/fracp-ch'
 end
 
 # Site settings
