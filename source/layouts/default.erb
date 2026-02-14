@@ -50,11 +50,19 @@
           <% end %>
 
           <div class="nav-section">
+            <span class="nav-section-title">FRACP</span>
+            <ul class="nav-links">
+              <li><%= link_to 'À propos', '/a-propos.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to 'Activités du réseau', '/activites.html', onclick: "this.closest('dialog').close()" %></li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
             <span class="nav-section-title">Modèle ACP</span>
             <ul class="nav-links">
               <li><%= link_to 'Les paniers', '/paniers.html', onclick: "this.closest('dialog').close()" %></li>
               <li><%= link_to 'Où trouver mon panier ?', '/carte.html', onclick: "this.closest('dialog').close()" %></li>
-              <li><%= link_to "Une ACP c'est quoi ?", '/modele-acp.html', onclick: "this.closest('dialog').close()" %></li>
+              <li><%= link_to "Une ACP, c'est quoi ?", '/modele-acp.html', onclick: "this.closest('dialog').close()" %></li>
               <li><%= link_to 'Avantages du modèle ACP', '/avantages-modele-acp.html', onclick: "this.closest('dialog').close()" %></li>
               <li><%= link_to 'Créer une ACP', '/creer-une-acp.html', onclick: "this.closest('dialog').close()" %></li>
             </ul>
@@ -79,7 +87,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <p>&copy;<%= current_year %> Fédération Romande de l'Agriculture Contractuelle de Proximité (FRACP)</p>
+        <p>&copy;<%= current_year %> Fédération Romande d'Agriculture Contractuelle de Proximité (FRACP)</p>
         <p><%= mail_to site_email, site_email, class: "contact-mail" %></p>
       </div>
     </div>
